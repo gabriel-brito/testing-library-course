@@ -2,34 +2,16 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [buttonProps, setButtonProps] = useState({
-    backgroundColor: "red",
-    text: "Change to blue",
-  });
-
-  const handleButtonClick = () => {
-    if (buttonProps.backgroundColor === "red") {
-      setButtonProps({
-        backgroundColor: "blue",
-        text: "Change to red",
-      });
-
-      return;
-    }
-
-    setButtonProps({
-      backgroundColor: "red",
-      text: "Change to blue",
-    });
-  };
+  const [buttonColor, setButtonColor] = useState("red");
+  const newColor = buttonColor === "red" ? "blue" : "red";
 
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonProps.backgroundColor }}
-        onClick={handleButtonClick}
+        style={{ backgroundColor: buttonColor }}
+        onClick={() => setButtonColor(newColor)}
       >
-        {buttonProps.text}
+        Change to {newColor}
       </button>
     </div>
   );
