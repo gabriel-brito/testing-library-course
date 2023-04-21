@@ -1,6 +1,24 @@
 import { useState } from "react";
 import "./App.css";
 
+export function replaceCamelWithSpaces(colorName) {
+  const result = [];
+
+  for (let i = 0; i < colorName.length; i++) {
+    if (colorName.charAt(i) === colorName.charAt(i).toUpperCase()) {
+      result.push(" ");
+      result.push(colorName.charAt(i));
+    } else {
+      result.push(colorName.charAt(i));
+    }
+  }
+
+  return result.join("").trim();
+}
+
+// Lecture solution:
+// return colorName.replace(/\B( [A-Z] )\/g, ' $1');
+
 function App() {
   const [disableButton, setDisableButton] = useState(false);
   const [buttonColor, setButtonColor] = useState("red");
@@ -16,6 +34,8 @@ function App() {
       >
         Change to {newColor}
       </button>
+
+      <br />
 
       <label htmlFor="disable-checkbox">Disable button</label>
 
