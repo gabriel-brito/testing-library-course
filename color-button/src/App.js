@@ -17,7 +17,14 @@ function App() {
         Change to {newColor}
       </button>
 
-      <input type="checkbox" checked={disableButton} onChange={handleDisable} />
+      <label htmlFor="disable-checkbox">Disable button</label>
+
+      <input
+        type="checkbox"
+        id="disable-checkbox"
+        checked={disableButton}
+        onChange={handleDisable}
+      />
     </div>
   );
 }
